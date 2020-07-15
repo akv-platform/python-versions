@@ -48,16 +48,5 @@ fi
 
 chmod +x ../python $PYTHON_MAJOR_DOT_MINOR $PYTHON_MAJORMINOR python
 
-# Old Python 2.* versions doesn't have "python2" binary
-if [-a $PYTHON_MAJOR ]; then
-    echo "YES"
-    chmod +x $PYTHON_MAJOR
-fi
-
-
-echo "Upgrading PIP..."
-./python -m ensurepip
-./python -m pip install --ignore-installed pip
-
 echo "Create complete file"
 touch $PYTHON_TOOLCACHE_VERSION_PATH/x64.complete
