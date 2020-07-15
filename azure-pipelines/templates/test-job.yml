@@ -43,15 +43,6 @@ jobs:
       architecture: '$(Architecture)'
 
   - task: PowerShell@2
-    displayName: 'Verbose sysconfig dump'
-    inputs:
-      TargetType: inline
-      script: |
-        Invoke-Expression "python ./sources/python-config-output.py"
-      workingDirectory: '$(Build.SourcesDirectory)/tests'
-    condition: ne(variables['Platform'], 'win32')
-
-  - task: PowerShell@2
     displayName: 'Verbose python binary links'
     inputs:
       TargetType: inline
