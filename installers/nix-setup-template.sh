@@ -48,5 +48,9 @@ fi
 
 chmod +x ../python $PYTHON_MAJOR $PYTHON_MAJOR_DOT_MINOR $PYTHON_MAJORMINOR python
 
+echo "Install Pip"
+curl https://bootstrap.pypa.io/2.6/get-pip.py -o get-pip.py
+./python get-pip.py
+
 echo "Create complete file"
 touch $PYTHON_TOOLCACHE_VERSION_PATH/x64.complete
