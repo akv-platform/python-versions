@@ -69,7 +69,7 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         @(
             "make",
             "build-essential",
-            #"libssl-dev",
+            "libssl-dev",
             "zlib1g-dev",
             "libbz2-dev",
             "libsqlite3-dev",
@@ -77,7 +77,6 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             "libreadline-dev",
             "libgdbm-dev",
             "libssl1.0",
-            "libssl1.0-dev"
         ) | ForEach-Object {
             Execute-Command -Command "sudo apt install -y $_"
         }
@@ -86,8 +85,5 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             ### On Ubuntu-1804, libgdbm-compat-dev has older modules that are no longer in libgdbm-dev
             Execute-Command -Command "sudo apt install -y libgdbm-compat-dev"
         }
-
-        Write-Host "Downgrade openssl"
-        #Execute-Command -Command "bash builders/downgrade-open-ssl.sh" -ErrorAction "Stop"
     }
 }
