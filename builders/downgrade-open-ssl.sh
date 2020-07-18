@@ -4,6 +4,7 @@ openssl version -a
 #sudo dpkg -r --force-depends "openssl"
 
 echo "downloading"
+sudo apt install build-essential checkinstall zlib1g-dev -y
 cd /usr/local/src/
 sudo wget https://www.openssl.org/source/openssl-1.0.0.tar.gz
 sudo tar -xf openssl-1.0.0.tar.gz
