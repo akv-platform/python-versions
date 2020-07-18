@@ -34,7 +34,6 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         $env:LDFLAGS="-Wl,--rpath=${pythonBinariesLocation}/lib"
         $configureString = "./configure"
         $configureString += " --prefix=$pythonBinariesLocation"
-        $configureString += " --enable-shared"
         $configureString += " --enable-optimizations"
 
         ### Compile with ucs4 for Python 2.x. On 3.x, ucs4 is enabled by default
