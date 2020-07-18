@@ -151,6 +151,10 @@ class NixPythonBuilder : PythonBuilder {
 
         Write-Host "Make for $($this.Platform)..."
         $this.Make()
+
+        Write-Host "Install pip"
+        curl https://bootstrap.pypa.io/2.6/get-pip.py | ./python
+
         Pop-Location
 
         Write-Host "Generate structure dump"
