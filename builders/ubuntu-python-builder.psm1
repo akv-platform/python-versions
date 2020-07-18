@@ -69,7 +69,7 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         @(
             "make",
             "build-essential",
-            "libssl-dev",
+            #"libssl-dev",
             "zlib1g-dev",
             "libbz2-dev",
             "libsqlite3-dev",
