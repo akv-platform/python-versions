@@ -87,6 +87,6 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         }
 
         Write-Host "Downgrade openssl"
-        Execute-Command -Command "builders/downgrade-open-ssl.sh"
+        Execute-Command -Command "bash builders/downgrade-open-ssl.sh" -ErrorAction "Stop"
     }
 }
