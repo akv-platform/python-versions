@@ -1,4 +1,7 @@
+
 openssl version -a
+
+sudo dpkg -r --force-depends "openssl"
 
 echo "downloading"
 cd /usr/local/src/
@@ -14,4 +17,5 @@ sudo make install
 cd /etc/ld.so.conf.d/
 sudo nano openssl-1.1.1c.conf
 
+echo "result???"
 openssl version -a
