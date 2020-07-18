@@ -51,7 +51,6 @@ chmod +x ../python $PYTHON_MAJOR $PYTHON_MAJOR_DOT_MINOR $PYTHON_MAJORMINOR pyth
 echo "Upgrading PIP..."
 #./python -m ensurepip 2>&1
 ./python -m pip install --ignore-installed pip 2>&1
-./python -m pip install pip==19.1.1
 
 echo "Create complete file"
 touch $PYTHON_TOOLCACHE_VERSION_PATH/x64.complete
