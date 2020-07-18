@@ -75,13 +75,14 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             "libsqlite3-dev",
             "libncursesw5-dev",
             "libreadline-dev",
-            "libgdbm-dev"
-            "libssl1.0"
+            "libgdbm-dev",
+            "libssl1.0",
+            "libssl1.0-dev"
         ) | ForEach-Object {
             Execute-Command -Command "sudo apt install -y $_"
         }
 
-        if ($true) {
+        if ($this.Platform -ne "linux-16.04") {
             ### On Ubuntu-1804, libgdbm-compat-dev has older modules that are no longer in libgdbm-dev
             Execute-Command -Command "sudo apt install -y libgdbm-compat-dev"
         }
