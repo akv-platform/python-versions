@@ -14,7 +14,7 @@ echo "building"
 sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
 sudo make
 sudo make test
-sudo make install
+sudo make install_sw
 cd /etc/ld.so.conf.d/
 sudo nano openssl-1.0.0.conf
 
