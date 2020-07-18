@@ -35,7 +35,6 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         $configureString = "./configure"
         $configureString += " --prefix=$pythonBinariesLocation"
         $configureString += " --enable-optimizations"
-        $configureString += " --with-ssl"
 
         ### Compile with ucs4 for Python 2.x. On 3.x, ucs4 is enabled by default
         if ($this.Version -lt "3.0.0") {
@@ -77,10 +76,13 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             "libncursesw5-dev",
             "libreadline-dev",
             "libgdbm-dev"
-            "libssl1.0"
+            #"libssl1.0"
         ) | ForEach-Object {
             Execute-Command -Command "sudo apt install -y $_"
         }
+
+        wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.3_amd64.deb
+        sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu5.3_amd64.deb
 
         if ($this.Platform -ne "linux-16.04") {
             ### On Ubuntu-1804, libgdbm-compat-dev has older modules that are no longer in libgdbm-dev
