@@ -76,7 +76,7 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             "libncursesw5-dev",
             "libreadline-dev",
             "libgdbm-dev",
-            "libssl1.0",
+            "libssl1.0"
         ) | ForEach-Object {
             Execute-Command -Command "sudo apt install -y $_"
         }
