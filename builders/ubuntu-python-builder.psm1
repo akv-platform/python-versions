@@ -31,7 +31,7 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         $pythonBinariesLocation = $this.GetFullPythonToolcacheLocation()
 
         Write-Host "debugdebug"
-        sed -i "s/^#zlib/zlib/g" Modules/Setup
+        #sed -i "s/^#zlib/zlib/g" Modules/Setup
 
         ### To build Python with SO we must pass full path to lib folder to the linker
         $env:LDFLAGS="-Wl,--rpath=${pythonBinariesLocation}/lib"
@@ -92,7 +92,8 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             "python-smbus",
             "libc6-dev",
             "build-dep",
-            "python2.7"
+            "python2.7",
+            "libsasl2-dev"
         ) | ForEach-Object {
             Execute-Command -Command "sudo apt install -y $_"
         }
