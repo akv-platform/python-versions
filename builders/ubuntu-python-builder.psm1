@@ -95,5 +95,8 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             ### On Ubuntu-1804, libgdbm-compat-dev has older modules that are no longer in libgdbm-dev
             Execute-Command -Command "sudo apt install -y libgdbm-compat-dev"
         }
+
+        Write-Host "trick"
+        Execute-Command -Command "sudo ln -s /usr/lib/i386-linux-gnu/libz.so.1 /usr/lib/libz.so"
     }
 }
