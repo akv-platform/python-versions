@@ -81,7 +81,12 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             "llvm",
             "libncurses5-dev",
             "dpkg-dev",
-            "build-essential"
+            "build-essential",
+            "python-dev",
+            "python-setuptools",
+            "python-pip",
+            "python-smbus",
+            "libc6-dev"
         ) | ForEach-Object {
             Execute-Command -Command "sudo apt install -y $_"
         }
