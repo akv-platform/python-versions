@@ -30,6 +30,11 @@ class UbuntuPythonBuilder : NixPythonBuilder {
 
         $pythonBinariesLocation = $this.GetFullPythonToolcacheLocation()
 
+        Write-Host "debug"
+        Get-ChildItem
+
+        sed -i "s/^#zlib/zlib/g" Modules/Setup
+
         ### To build Python with SO we must pass full path to lib folder to the linker
         $env:LDFLAGS="-Wl,--rpath=${pythonBinariesLocation}/lib"
         $configureString = "./configure"
