@@ -71,16 +71,17 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             "make",
             "build-essential",
             "libssl-dev",
-            #"zlib1g",
-            #"zlib1g-dev",
-            #"zlib-devel",
-            #"zlib",
+            "zlib1g-dev",
             "libbz2-dev",
             "libsqlite3-dev",
             "libncursesw5-dev",
             "libreadline-dev",
             "libgdbm-dev",
-            "libssl1.0"
+            "libssl1.0",
+            "llvm",
+            "libncurses5-dev",
+            "dpkg-dev",
+            "build-essential"
         ) | ForEach-Object {
             Execute-Command -Command "sudo apt install -y $_"
         }
