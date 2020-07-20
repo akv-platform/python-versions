@@ -147,8 +147,8 @@ class NixPythonBuilder : PythonBuilder {
 
         Push-Location -Path $sourcesLocation
         Write-Host "Configure for $($this.Platform)..."
-        Get-ChildItem
-        sed -i "s/^#zlib/zlib/g" $sourcesLocation/Modules/Setup.dist
+        #Get-ChildItem
+        #sed -i "s/^#zlib/zlib/g" $sourcesLocation/Modules/Setup.dist
         $this.Configure()
 
         Write-Host "Make for $($this.Platform)..."
