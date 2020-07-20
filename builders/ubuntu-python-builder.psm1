@@ -30,9 +30,7 @@ class UbuntuPythonBuilder : NixPythonBuilder {
 
         $pythonBinariesLocation = $this.GetFullPythonToolcacheLocation()
 
-        Write-Host "debug"
-        Get-ChildItem
-
+        Write-Host "debugdebug"
         sed -i "s/^#zlib/zlib/g" Modules/Setup
 
         ### To build Python with SO we must pass full path to lib folder to the linker
@@ -105,6 +103,6 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         }
 
         Write-Host "trick"
-        Execute-Command -Command "sudo ln -s /lib/i386-linux-gnu/libz.so.1 /lib/libz.so"
+        #Execute-Command -Command "sudo ln -s /lib/i386-linux-gnu/libz.so.1 /lib/libz.so"
     }
 }
