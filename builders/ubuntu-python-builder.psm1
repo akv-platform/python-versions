@@ -97,6 +97,6 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         }
 
         Write-Host "trick"
-        Execute-Command -Command "sudo ln -s /usr/lib/i386-linux-gnu/libz.so.1 /usr/lib/libz.so"
+        Execute-Command -Command "sudo ln -s /lib/i386-linux-gnu/libz.so.1 /lib/libz.so"
     }
 }
