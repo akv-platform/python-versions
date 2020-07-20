@@ -36,7 +36,7 @@ class UbuntuPythonBuilder : NixPythonBuilder {
         $configureString += " --prefix=$pythonBinariesLocation"
         #$configureString += " --enable-shared"
         #$configureString += " --enable-optimizations"
-        $configureString += " –with-zlib=/usr/include"
+        $configureString += " –-with-zlib=/usr/include"
 
         ### Compile with ucs4 for Python 2.x. On 3.x, ucs4 is enabled by default
         if ($this.Version -lt "3.0.0") {
@@ -89,7 +89,7 @@ class UbuntuPythonBuilder : NixPythonBuilder {
             "python-smbus",
             "libc6-dev",
             "build-dep",
-            "python2.6"
+            "python2.7"
         ) | ForEach-Object {
             Execute-Command -Command "sudo apt install -y $_"
         }
